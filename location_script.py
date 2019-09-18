@@ -34,8 +34,12 @@ obj = urllib.request.urlopen(api_url)
 
 data = json.load(obj)
 
-print(api_url)
+#print(api_url)
 
 
 
-print(data)
+#print(data)
+
+print("Location Name:" + data['response']['venues'][0]['name']) 
+print("Location Address: " + data['response']['venues'][0]['location']['address'] + " " + data['response']['venues'][0]['location']['city'] + ", " + data['response']['venues'][0]['location']['state'] + " " + data['response']['venues'][0]['location']['postalCode'] +  ", " + data['response']['venues'][0]['location']['country'])
+print("Category: " + data['response']['venues'][0]['categories'][0]['name'])
