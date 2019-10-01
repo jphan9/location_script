@@ -13,7 +13,10 @@ print("4. Gen Korean BBQ House")
 
 x = input("choice: ")
 
-print(x)
+while(int(x) > 4 or int(x) < 1):
+    if int(x) > 4 or int(x) < 1:
+        print("Please select a number between 1 - 4.")
+        x = input("choice: ")
 
 if x == "1":
     location_long = -118.129001
@@ -33,12 +36,6 @@ api_url = "https://api.foursquare.com/v2/venues/search?client_id=" + api_clienti
 obj = urllib.request.urlopen(api_url)
 
 data = json.load(obj)
-
-#print(api_url)
-
-
-
-#print(data)
 
 print("Location Name:" + data['response']['venues'][0]['name']) 
 print("Location Address: " + data['response']['venues'][0]['location']['address'] + " " + data['response']['venues'][0]['location']['city'] + ", " + data['response']['venues'][0]['location']['state'] + " " + data['response']['venues'][0]['location']['postalCode'] +  ", " + data['response']['venues'][0]['location']['country'])
